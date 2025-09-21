@@ -3,106 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>КБ - Решения под заказ</title>
+<title>КБ - Изготовление изделий под заказ</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-    body { font-family: 'Arial', sans-serif; margin:0; padding:0; color:#1b1b1b; background:#f5f7fa; }
-    header { background:#0f1c2c; color:#ffffff; padding:40px 20px; text-align:center; }
-    header h1 { margin:0; font-size:2.5em; }
-    header p { font-size:1.2em; margin-top:10px; }
+    /* Общие стили */
+    body { font-family: 'Inter', sans-serif; margin:0; padding:0; background:#f5f7fa; color:#1b1b1b; scroll-behavior:smooth;}
+    a { text-decoration:none; }
+    h1,h2,h3,h4 { margin:0 0 15px 0; color:#0f1c2c; }
+    p { margin-bottom:20px; line-height:1.6; }
 
-    nav { background:#1b2a3c; padding:10px 20px; text-align:center; }
-    nav a { color:#ffffff; margin:0 15px; text-decoration:none; font-weight:600; }
+    /* Header */
+    header { background:#0f1c2c; color:#ffffff; padding:60px 20px; text-align:center; }
+    header h1 { font-size:3em; }
+    header p { font-size:1.3em; margin-top:10px; max-width:700px; margin-left:auto; margin-right:auto; }
 
-    section { padding:60px 20px; max-width:1200px; margin:0 auto; }
-    h2 { font-size:2em; margin-bottom:20px; color:#0f1c2c; }
-    p { font-size:1em; line-height:1.6; margin-bottom:20px; }
+    .cta { display:inline-block; padding:15px 35px; background:#1b2a3c; color:#fff; font-weight:600; border-radius:10px; margin-top:20px; transition:0.3s; }
+    .cta:hover { background:#2e3f57; }
 
-    .placeholder { width:100%; height:300px; background:#d1d9e6; display:flex; justify-content:center; align-items:center; margin-bottom:20px; color:#555; font-size:1em; }
+    /* Nav */
+    nav { background:#1b2a3c; display:flex; justify-content:center; flex-wrap:wrap; gap:15px; padding:15px 20px; position:sticky; top:0; z-index:999; }
+    nav a { color:#ffffff; font-weight:600; padding:5px 10px; transition:0.3s; }
+    nav a:hover { background:#283c55; border-radius:5px; }
 
-    .cta { display:inline-block; padding:15px 30px; background:#1b2a3c; color:#fff; text-decoration:none; font-weight:600; border-radius:8px; margin-top:20px; }
+    /* Sections */
+    section { padding:80px 20px; max-width:1200px; margin:0 auto; }
+    .placeholder { width:100%; height:300px; background:#d1d9e6; display:flex; justify-content:center; align-items:center; color:#555; font-size:1em; border-radius:12px; margin-bottom:20px; }
 
-    .steps { display:flex; flex-wrap:wrap; gap:20px; }
-    .step { flex:1 1 250px; background:#ffffff; padding:20px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.05); }
-    .step h3 { margin-top:0; color:#0f1c2c; }
+    /* Steps */
+    .steps { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:30px; }
+    .step { background:#ffffff; padding:25px; border-radius:15px; box-shadow:0 6px 12px rgba(0,0,0,0.08); display:flex; flex-direction:column; align-items:center; text-align:center; }
+    .step img { width:80px; height:80px; margin-bottom:15px; }
 
-    .faq-item { margin-bottom:20px; }
-    .faq-item h4 { margin:0 0 5px 0; color:#1b2a3c; }
+    /* Cases */
+    .case { background:#ffffff; border-radius:15px; padding:25px; box-shadow:0 6px 12px rgba(0,0,0,0.08); text-align:center; }
+    .case img { width:100%; height:200px; border-radius:12px; object-fit:cover; margin-bottom:15px; }
 
-    footer { background:#0f1c2c; color:#fff; text-align:center; padding:30px 20px; }
-    footer a { color:#64b5f6; text-decoration:none; }
+    /* FAQ */
+    .faq-item { margin-bottom:25px; }
+    .faq-item h4 { cursor:pointer; background:#e1e7f0; padding:15px; border-radius:10px; }
+    .faq-item p { display:none; padding:15px; margin:0; border-left:3px solid #1b2a3c; background:#f0f4fb; border-radius:0 10px 10px 0; }
+
+    /* Footer */
+    footer { background:#0f1c2c; color:#fff; text-align:center; padding:50px 20px; }
+    footer a { color:#64b5f6; }
+
 </style>
 </head>
 <body>
 
+<!-- Header -->
 <header>
-    <h1>КБ - Изготовление изделий под заказ</h1>
-    <p>От идеи до готового продукта — решения для частных и корпоративных задач</p>
+    <h1>Изготовление изделий под заказ</h1>
+    <p>От идеи до готового продукта. Решения для частных и корпоративных задач любой сложности.</p>
     <a href="#contact" class="cta">Опишите задачу</a>
 </header>
 
+<!-- Nav -->
 <nav>
     <a href="#process">Процесс</a>
     <a href="#cases">Примеры решений</a>
     <a href="#faq">FAQ</a>
-    <a href="techdoc.html">Техническая документация</a>
+    <a href="techdoc.html">Техдокументация</a>
     <a href="#contact">Контакты</a>
 </nav>
 
-<!-- Главная страница с воронкой -->
+<!-- Процесс -->
 <section id="process">
-    <h2>Как мы работаем</h2>
+    <h2>Процесс работы</h2>
     <div class="steps">
         <div class="step">
-            <h3>1. Первый контакт</h3>
+            <img src="" alt="Иконка первого контакта" />
+            <h3>Первый контакт</h3>
             <p>Вы описываете задачу, ограничения и цели. Мы фиксируем запрос и делаем первые наброски решения.</p>
             <div class="placeholder" alt="Схематическая визуализация первого контакта с клиентом, эскизы на столе"></div>
         </div>
         <div class="step">
-            <h3>2. Анализ задачи</h3>
+            <img src="" alt="Иконка анализа задачи" />
+            <h3>Анализ задачи</h3>
             <p>Оцениваем, какие шаги нужны для реализации. Формируем визуализацию или схему работы изделия.</p>
             <div class="placeholder" alt="3D-схема изделия, блоки и этапы работы"></div>
         </div>
         <div class="step">
-            <h3>3. Предложение решения</h3>
-            <p>Готовим рабочее предложение с деталями: материалы, сроки, этапы работы. Для сложных проектов — поэтапное описание.</p>
+            <img src="" alt="Иконка предложения решения" />
+            <h3>Предложение решения</h3>
+            <p>Готовим рабочее предложение: материалы, сроки, этапы работы. Для сложных проектов — поэтапное описание.</p>
             <div class="placeholder" alt="Эскиз изделия с этапами, схемы производства"></div>
         </div>
         <div class="step">
-            <h3>4. Закрепление решения</h3>
+            <img src="" alt="Иконка закрепления решения" />
+            <h3>Закрепление решения</h3>
             <p>Согласовываем детали и запускаем работу, фиксируем этапы оплаты и контрольные точки.</p>
             <div class="placeholder" alt="Документы согласования и план проекта"></div>
         </div>
         <div class="step">
-            <h3>5. Работа над проектом</h3>
+            <img src="" alt="Иконка работы над проектом" />
+            <h3>Работа над проектом</h3>
             <p>Выполняем проект по шагам, показываем промежуточные результаты: эскизы, 3D-модель, прототипы.</p>
             <div class="placeholder" alt="Фотографии прототипов и этапов работы"></div>
         </div>
         <div class="step">
-            <h3>6. Готовое изделие</h3>
+            <img src="" alt="Иконка готового изделия" />
+            <h3>Готовое изделие</h3>
             <p>Передаём готовый продукт с инструкциями по использованию и рекомендациями по эксплуатации.</p>
             <div class="placeholder" alt="Готовое изделие на рабочем столе, готовое к использованию"></div>
         </div>
         <div class="step">
-            <h3>7. Поддержка после передачи</h3>
+            <img src="" alt="Иконка поддержки" />
+            <h3>Поддержка после передачи</h3>
             <p>Остаёмся на связи для уточнений, изменений или новых версий изделия по согласованному плану.</p>
             <div class="placeholder" alt="Обратная связь с клиентом, общение по проекту"></div>
         </div>
     </div>
 </section>
 
-<!-- Примеры решений -->
+<!-- Кейсы -->
 <section id="cases">
-    <h2>Примеры реализованных проектов</h2>
-    <p>Ниже представлены проекты, демонстрирующие подход к изготовлению изделий под заказ.</p>
+    <h2>Примеры решений</h2>
+    <p>Проекты, демонстрирующие подход к изготовлению изделий под заказ.</p>
     <div class="steps">
-        <div class="step">
-            <h3>Кейс 1</h3>
+        <div class="case">
             <div class="placeholder" alt="Фотография прототипа медицинского ортеза, этапы изготовления"></div>
+            <h3>Кейс 1</h3>
             <p>Описание проекта: задача, материал, результат.</p>
         </div>
-        <div class="step">
-            <h3>Кейс 2</h3>
+        <div class="case">
             <div class="placeholder" alt="3D-модель технического изделия, этапы сборки"></div>
+            <h3>Кейс 2</h3>
             <p>Описание проекта: задача, материал, результат.</p>
         </div>
     </div>
@@ -137,9 +163,21 @@
     <p>Или через мессенджеры: WhatsApp / Telegram</p>
 </section>
 
+<!-- Footer -->
 <footer>
     <p>&copy; 2025 КБ. Все права защищены. <a href="techdoc.html">Пример технической документации</a></p>
 </footer>
+
+<script>
+    // FAQ открытие
+    const faqItems = document.querySelectorAll('.faq-item h4');
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const p = item.nextElementSibling;
+            p.style.display = p.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+</script>
 
 </body>
 </html>
