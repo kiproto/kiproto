@@ -1,357 +1,419 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>КБ Производство решений</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  body {
-    margin:0;
-    font-family: 'Roboto', sans-serif;
-    background: #f5f5f5;
-    color: #111;
-  }
-  a { text-decoration: none; color: inherit; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КБ / Производственная студия</title>
+  <style>
+    /* --- Базовые стили --- */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background: #f4f6f8;
+      color: #1c1c1c;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
-  /* Шапка */
-  header {
-    width: 100%;
-    height: 150px;
-    background: url('header-placeholder.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    padding-left: 40px;
-  }
-  header .logo { font-weight: 700; font-size: 24px; color: #fff; }
+    /* --- Шапка --- */
+    header {
+      background: #0a1e36;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      height: 80px;
+    }
+    header .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
 
-  /* Быстрые контакты */
-  .cta-bar {
-    display: flex;
-    justify-content: flex-start;
-    padding: 10px 40px;
-    background: #222;
-    gap: 20px;
-  }
-  .cta-bar a {
-    font-size: 24px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+    /* --- CTA полоска --- */
+    .cta-bar {
+      background: #1c2b42;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    .cta-bar a {
+      margin: 0 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+      font-size: 0.9em;
+    }
+    .cta-bar a img {
+      width: 32px;
+      margin-bottom: 5px;
+    }
 
-  /* Главный блок - шаги */
-  .steps {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 60px 20px;
-    gap: 30px;
-    background: #fff;
-  }
-  .step-card {
-    width: 250px;
-    padding: 20px;
-    background: #f0f0f0;
-    border-radius: 12px;
-    text-align: center;
-  }
-  .step-card img {
-    width: 64px;
-    height: 64px;
-    margin-bottom: 12px;
-  }
-  .step-card .step-title {
-    font-weight: 500;
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-  .step-card .step-desc {
-    font-style: italic;
-    font-size: 14px;
-    color: #555;
-  }
+    /* --- Главный блок (шаги) --- */
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 50px 20px;
+      gap: 30px;
+      background: #e9edf4;
+    }
+    .step-card {
+      background: #fff;
+      flex: 1 1 250px;
+      max-width: 300px;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .step-card img {
+      width: 60px;
+      margin-bottom: 20px;
+    }
+    .step-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.2em;
+    }
+    .step-card p {
+      font-style: italic;
+      font-size: 0.95em;
+      color: #555;
+    }
 
-  /* Кейсы */
-  .cases {
-    padding: 60px 20px;
-    background: #e8e8e8;
-  }
-  .case-group {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 40px;
-    gap: 20px;
-  }
-  .case-group img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
+    /* --- Кейсы --- */
+    .cases {
+      padding: 50px 20px;
+      background: #f4f6f8;
+    }
+    .case-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    .case-group img {
+      flex: 1;
+      max-width: 300px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
 
-  /* Этапы */
-  .pipeline {
-    padding: 60px 20px;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-  }
-  .pipeline-step {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  .pipeline-step img {
-    width: 48px;
-    height: 48px;
-  }
+    /* --- Этапы --- */
+    .pipeline {
+      padding: 50px 20px;
+      background: #e9edf4;
+      text-align: center;
+    }
+    .pipeline h2 {
+      margin-bottom: 30px;
+    }
+    .pipeline-icons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .pipeline-icons div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 120px;
+    }
+    .pipeline-icons div img {
+      width: 50px;
+      margin-bottom: 10px;
+    }
 
-  /* Отзывы */
-  .reviews {
-    padding: 60px 20px;
-    background: #e8e8e8;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .review-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-  }
-  .review-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    margin-bottom: 12px;
-    border-radius: 8px;
-  }
+    /* --- Отзывы --- */
+    .reviews {
+      padding: 50px 20px;
+      background: #f4f6f8;
+      text-align: center;
+    }
+    .review-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      max-width: 400px;
+      margin: 15px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .review-card p {
+      font-style: italic;
+      color: #555;
+    }
 
-  /* FAQ */
-  .faq {
-    padding: 60px 20px;
-    background: #fff;
-  }
-  .faq-group {
-    margin-bottom: 20px;
-  }
-  .faq-group summary {
-    font-weight: 500;
-    cursor: pointer;
-    margin-bottom: 8px;
-  }
-  .faq-group details[open] summary { color: #007acc; }
-  .faq-group p { margin: 4px 0; font-size: 14px; }
+    /* --- Вопросы --- */
+    .faq {
+      padding: 50px 20px;
+      background: #e9edf4;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq h3 {
+      cursor: pointer;
+      padding: 10px;
+      background: #1c2b42;
+      color: #fff;
+      border-radius: 6px;
+      margin-bottom: 5px;
+    }
+    .faq div {
+      display: none;
+      padding: 10px 15px;
+      background: #fff;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
 
-  /* Контакты */
-  .contacts {
-    padding: 60px 20px;
-    background: #e8e8e8;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 600px;
-    margin: auto;
-  }
-  .contacts form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .contacts input, .contacts textarea {
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-  }
-  .contacts button {
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    background: #007acc;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-  }
+    /* --- Контакты --- */
+    .contacts {
+      padding: 50px 20px;
+      background: #f4f6f8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contacts h2 {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    .contacts ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 25px;
+    }
+    .contacts li {
+      margin-bottom: 10px;
+    }
+    .contact-form {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-form input, .contact-form textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+    .contact-form button {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #0a1e36;
+      color: #fff;
+      cursor: pointer;
+    }
 
-  /* Корпоратив */
-  .corporate {
-    padding: 60px 20px;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .corporate a {
-    color: #007acc;
-    font-size: 14px;
-  }
+    /* --- Корпоратив --- */
+    .corporate {
+      padding: 50px 20px;
+      background: #e9edf4;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .corporate ul {
+      list-style: none;
+      padding: 0;
+    }
+    .corporate li {
+      margin-bottom: 10px;
+    }
 
-  /* Полоса слева для перехода к контактам */
-  .left-bar {
-    position: fixed;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    background: #007acc;
-    border-radius: 0 6px 6px 0;
-    padding: 10px;
-  }
-  .left-bar a { display: block; color: #fff; margin: 10px 0; text-align: center; }
-</style>
+    /* --- Прочее --- */
+    .scroll-left {
+      position: fixed;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      background: #0a1e36;
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      writing-mode: vertical-rl;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Полоса слева -->
-<div class="left-bar">
-  <a href="#contacts">📞</a>
-</div>
+  <!-- --- Шапка --- -->
+  <header>
+    <div class="logo">КБ / Студия</div>
+  </header>
 
-<!-- Шапка -->
-<header>
-  <div class="logo">КБ Решений</div>
-</header>
+  <!-- --- CTA --- -->
+  <div class="cta-bar">
+    <a href="https://wa.me/1234567890" target="_blank">
+      <img src="placeholder-wa.png" alt="WhatsApp иконка">
+      WhatsApp
+    </a>
+    <a href="tg://resolve?domain=username" target="_blank">
+      <img src="placeholder-tg.png" alt="Telegram иконка">
+      Telegram
+    </a>
+    <a href="mailto:email@example.com">
+      <img src="placeholder-email.png" alt="Email иконка">
+      Email
+    </a>
+    <a href="#contacts">
+      <img src="placeholder-contact.png" alt="Контакты иконка">
+      Контакты
+    </a>
+  </div>
 
-<!-- CTA -->
-<div class="cta-bar">
-  <a href="https://wa.me/0000000000">💬 WhatsApp</a>
-  <a href="tg://resolve?domain=username">✈️ Telegram</a>
-  <a href="mailto:info@example.com">✉️ Email</a>
-  <a href="#contacts">⬇️ Контакты</a>
-</div>
+  <!-- --- Главный блок: шаги --- -->
+  <section class="steps">
+    <div class="step-card">
+      <img src="placeholder-step1.png" alt="Иконка шага 1 - первый контакт с клиентом">
+      <h3>Вы описываете задачу</h3>
+      <p>Вы делитесь своей идеей, ограничениями и целями, присылаете эскиз или фото.</p>
+    </div>
+    <div class="step-card">
+      <img src="placeholder-step2.png" alt="Иконка шага 2 - анализ задачи">
+      <h3>Мы анализируем задачу</h3>
+      <p>Оцениваем необходимые шаги и формируем визуализацию будущего изделия.</p>
+    </div>
+    <div class="step-card">
+      <img src="placeholder-step3.png" alt="Иконка шага 3 - предложение решения">
+      <h3>Готовим предложение</h3>
+      <p>Показываем, что будет сделано, из чего и в какие сроки с возможными этапами.</p>
+    </div>
+    <div class="step-card">
+      <img src="placeholder-step4.png" alt="Иконка шага 4 - закрепление решения">
+      <h3>Согласовываем детали</h3>
+      <p>Фиксируем решение и согласовываем оплату и контрольные точки.</p>
+    </div>
+    <div class="step-card">
+      <img src="placeholder-step5.png" alt="Иконка шага 5 - работа над проектом">
+      <h3>Выполняем проект</h3>
+      <p>Демонстрируем промежуточные результаты, корректируем решение при необходимости.</p>
+    </div>
+    <div class="step-card">
+      <img src="placeholder-step6.png" alt="Иконка шага 6 - готовое изделие">
+      <h3>Передаём готовое изделие</h3>
+      <p>Показываем, как использовать, предоставляем инструкции и рекомендации.</p>
+    </div>
+    <div class="step-card">
+      <img src="placeholder-step7.png" alt="Иконка шага 7 - поддержка">
+      <h3>Поддержка после передачи</h3>
+      <p>Отвечаем на уточнения, делаем новые версии или изменения по согласованному плану.</p>
+    </div>
+  </section>
 
-<!-- Главный блок - шаги -->
-<section class="steps">
-  <div class="step-card">
-    <img src="placeholder-step1.jpg" alt="Понимание задачи">
-    <div class="step-title">Первичный контакт</div>
-    <div class="step-desc">Вы рассказываете задачу — мы делаем первые наброски решения.</div>
-  </div>
-  <div class="step-card">
-    <img src="placeholder-step2.jpg" alt="Анализ задачи">
-    <div class="step-title">Анализ задачи</div>
-    <div class="step-desc">Оцениваем, какие шаги нужны для реализации и формируем схему решения.</div>
-  </div>
-  <div class="step-card">
-    <img src="placeholder-step3.jpg" alt="Предложение решения">
-    <div class="step-title">Предложение решения</div>
-    <div class="step-desc">Показываем план работы, материалы, сроки и этапы проекта.</div>
-  </div>
-  <div class="step-card">
-    <img src="placeholder-step4.jpg" alt="Закрепление решения">
-    <div class="step-title">Закрепление решения</div>
-    <div class="step-desc">Согласовываем детали, фиксируем оплату и запускаем работу.</div>
-  </div>
-  <div class="step-card">
-    <img src="placeholder-step5.jpg" alt="Работа над проектом">
-    <div class="step-title">Работа над проектом</div>
-    <div class="step-desc">Выполняем проект по шагам с промежуточной проверкой деталей.</div>
-  </div>
-  <div class="step-card">
-    <img src="placeholder-step6.jpg" alt="Готовое изделие">
-    <div class="step-title">Готовое изделие</div>
-    <div class="step-desc">Передаем продукт с инструкциями и рекомендациями по эксплуатации.</div>
-  </div>
-  <div class="step-card">
-    <img src="placeholder-step7.jpg" alt="Поддержка после передачи">
-    <div class="step-title">Поддержка после передачи</div>
-    <div class="step-desc">Остаёмся на связи для уточнений и новых версий изделия.</div>
-  </div>
-</section>
+  <!-- --- Кейсы --- -->
+  <section class="cases">
+    <div class="case-group">
+      <img src="placeholder-case1a.png" alt="Кейс 1 - изображение 1">
+      <img src="placeholder-case1b.png" alt="Кейс 1 - изображение 2">
+      <img src="placeholder-case1c.png" alt="Кейс 1 - изображение 3">
+    </div>
+    <div class="case-group">
+      <img src="placeholder-case2a.png" alt="Кейс 2 - изображение 1">
+      <img src="placeholder-case2b.png" alt="Кейс 2 - изображение 2">
+      <img src="placeholder-case2c.png" alt="Кейс 2 - изображение 3">
+    </div>
+    <div class="case-group">
+      <img src="placeholder-case3a.png" alt="Кейс 3 - изображение 1">
+      <img src="placeholder-case3b.png" alt="Кейс 3 - изображение 2">
+      <img src="placeholder-case3c.png" alt="Кейс 3 - изображение 3">
+    </div>
+  </section>
 
-<!-- Кейсы -->
-<section class="cases">
-  <div class="case-group">
-    <img src="case1-1.jpg" alt="Кейс 1, изображение 1">
-    <img src="case1-2.jpg" alt="Кейс 1, изображение 2">
-    <img src="case1-3.jpg" alt="Кейс 1, изображение 3">
-  </div>
-  <div class="case-group">
-    <img src="case2-1.jpg" alt="Кейс 2, изображение 1">
-    <img src="case2-2.jpg" alt="Кейс 2, изображение 2">
-    <img src="case2-3.jpg" alt="Кейс 2, изображение 3">
-  </div>
-  <div class="case-group">
-    <img src="case3-1.jpg" alt="Кейс 3, изображение 1">
-    <img src="case3-2.jpg" alt="Кейс 3, изображение 2">
-    <img src="case3-3.jpg" alt="Кейс 3, изображение 3">
-  </div>
-</section>
+  <!-- --- Этапы --- -->
+  <section class="pipeline">
+    <h2>Этапы внутреннего производства</h2>
+    <div class="pipeline-icons">
+      <div><img src="placeholder-pipe1.png" alt="Этап 1 - моделирование"><span>Моделирование</span></div>
+      <div><img src="placeholder-pipe2.png" alt="Этап 2 - прототип"><span>Прототип</span></div>
+      <div><img src="placeholder-pipe3.png" alt="Этап 3 - печать"><span>3D-печать</span></div>
+      <div><img src="placeholder-pipe4.png" alt="Этап 4 - обработка"><span>Обработка</span></div>
+      <div><img src="placeholder-pipe5.png" alt="Этап 5 - проверка"><span>Контроль</span></div>
+      <div><img src="placeholder-pipe6.png" alt="Этап 6 - упаковка"><span>Упаковка</span></div>
+    </div>
+  </section>
 
-<!-- Этапы -->
-<section class="pipeline">
-  <div class="pipeline-step">
-    <img src="pipeline1.png" alt="Этап 1">
-    <div>Подготовка и проектирование</div>
-  </div>
-  <div class="pipeline-step">
-    <img src="pipeline2.png" alt="Этап 2">
-    <div>Прототипирование</div>
-  </div>
-  <div class="pipeline-step">
-    <img src="pipeline3.png" alt="Этап 3">
-    <div>Производство</div>
-  </div>
-  <div class="pipeline-step">
-    <img src="pipeline4.png" alt="Этап 4">
-    <div>Тестирование и контроль качества</div>
-  </div>
-  <div class="pipeline-step">
-    <img src="pipeline5.png" alt="Этап 5">
-    <div>Передача клиенту</div>
-  </div>
-</section>
+  <!-- --- Отзывы --- -->
+  <section class="reviews">
+    <div class="review-card">
+      <p>«Изделие полностью соответствует ожиданиям, удобно и функционально.»</p>
+    </div>
+    <div class="review-card">
+      <p>«Прототип был готов в срок, все корректировки внесли быстро.»</p>
+    </div>
+  </section>
 
-<!-- Отзывы -->
-<section class="reviews">
-  <div class="review-card">
-    <img src="review1.jpg" alt="Пример применения изделия 1">
-    <div>«Изделие полностью соответствует ожиданиям и решает задачу.»</div>
-  </div>
-  <div class="review-card">
-    <img src="review2.jpg" alt="Пример применения изделия 2">
-    <div>«Процесс согласования и прототипирования прошёл легко, результат качественный.»</div>
-  </div>
-</section>
+  <!-- --- Вопросы --- -->
+  <section class="faq">
+    <h3>Материалы</h3>
+    <div>
+      <ul>
+        <li>Какие материалы используются? — Мы применяем пластики, металлы и композиты.</li>
+        <li>Можно ли выбрать конкретный материал? — Да, согласуем с клиентом.</li>
+      </ul>
+    </div>
 
-<!-- FAQ -->
-<section class="faq">
-  <details class="faq-group">
-    <summary>Материалы и изготовление</summary>
-    <p>Какие материалы используются? — В зависимости от задачи, от пластика до металлов.</p>
-    <p>Можно ли индивидуализировать форму? — Да, под конкретные размеры клиента.</p>
-  </details>
-  <details class="faq-group">
-    <summary>Сроки и доставка</summary>
-    <p>Сколько времени занимает изготовление? — Обычно от нескольких дней до нескольких недель, в зависимости от сложности.</p>
-    <p>Как доставляется изделие? — Курьером, самовывозом или транспортной компанией.</p>
-  </details>
-</section>
+    <h3>Сроки</h3>
+    <div>
+      <ul>
+        <li>Сколько времени занимает проект? — В зависимости от сложности, от 1 до 4 недель.</li>
+        <li>Можно ли ускорить процесс? — Да, с корректировкой стоимости.</li>
+      </ul>
+    </div>
 
-<!-- Контакты -->
-<section class="contacts" id="contacts">
-  <div>Телефон: +7 000 000-00-00</div>
-  <div>WhatsApp: +7 000 000-00-00</div>
-  <div>Telegram: @username</div>
-  <div>Email: info@example.com</div>
-  <form>
-    <input type="text" placeholder="Ваше имя">
-    <input type="email" placeholder="Email">
-    <textarea placeholder="Опишите задачу" rows="4"></textarea>
-    <button type="submit">Отправить</button>
-  </form>
-</section>
+    <h3>Доставка</h3>
+    <div>
+      <ul>
+        <li>Как получить готовое изделие? — Курьером, самовывозом, почтой.</li>
+        <li>Есть ли упаковка? — Все изделия упаковываются для транспортировки.</li>
+      </ul>
+    </div>
+  </section>
 
-<!-- Корпоратив -->
-<section class="corporate">
-  <a href="#">Пример договора (PDF)</a>
-  <a href="#">Пример документации (PDF)</a>
-  <a href="#">Пример технического задания (PDF)</a>
-</section>
+  <!-- --- Контакты --- -->
+  <section class="contacts" id="contacts">
+    <h2>Контакты</h2>
+    <ul>
+      <li>Телефон: +7 (999) 123-45-67</li>
+      <li>WhatsApp: +7 (999) 123-45-67</li>
+      <li>Telegram: @username</li>
+      <li>Email: email@example.com</li>
+    </ul>
+    <button onclick="document.querySelector('.contact-form').style.display='flex'">Написать нам</button>
+    <form class="contact-form">
+      <input type="text" placeholder="Имя">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Описание задачи"></textarea>
+      <button type="submit">Отправить</button>
+    </form>
+  </section>
 
+  <!-- --- Корпоратив --- -->
+  <section class="corporate">
+    <h2>Корпоративные клиенты</h2>
+    <ul>
+      <li><a href="#">Пример договора (PDF)</a></li>
+      <li><a href="#">Пример документации (PDF)</a></li>
+      <li><a href="#">Пример ТЗ (PDF)</a></li>
+    </ul>
+  </section>
+
+  <!-- --- Отступ слева для перехода к контактам --- -->
+  <div class="scroll-left" onclick="location.href='#contacts'">Контакты</div>
+
+  <script>
+    // FAQ раскрытие
+    document.querySelectorAll('.faq h3').forEach(h => {
+      h.addEventListener('click', () => {
+        const div = h.nextElementSibling;
+        div.style.display = div.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
 </body>
 </html>
