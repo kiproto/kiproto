@@ -1,260 +1,359 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>КБ Производственная Студия</title>
-  <style>
-    /* Базовая гамма */
-    :root {
-      --bg-dark: #0b0f1a;
-      --bg-light: #1e263b;
-      --accent: #00aaff;
-      --text-light: #e0e6f0;
-      --text-dark: #0b0f1a;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>КБ / Производственная студия</title>
+<style>
+  :root {
+    --primary-color: #0a0f1a;
+    --secondary-color: #1c1f2a;
+    --accent-color: #00d1ff;
+    --text-color: #f5f5f5;
+    --muted-color: #888;
+    --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    background: var(--primary-color);
+    color: var(--text-color);
+  }
+  a { color: var(--accent-color); text-decoration: none; }
+  header {
+    position: relative;
+    height: 250px;
+    background: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header img { width: 100%; height: 100%; object-fit: cover; }
+  .cta-strip {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px;
+    background: var(--secondary-color);
+  }
+  .cta-strip a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; height: 50px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+  main { padding: 50px 20px; max-width: 1200px; margin: auto; }
+  h2 { margin-bottom: 20px; }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  .step-card {
+    background: var(--secondary-color);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .step-card img { width: 80px; height: 80px; margin-bottom: 15px; }
+  .step-card h3 { margin-bottom: 10px; font-size: 1.2em; }
+  .step-card p { font-style: italic; color: var(--muted-color); }
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      line-height: 1.6;
-    }
+  .cases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 50px 0;
+  }
+  .case-group img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+  .pipeline {
+    background: var(--secondary-color);
+    padding: 40px 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-around;
+    margin: 50px 0;
+  }
+  .pipeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+  }
+  .pipeline-step img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  .pipeline-step p {
+    font-size: 0.9em;
+    color: var(--muted-color);
+    text-align: center;
+  }
 
-    header {
-      background-color: var(--bg-light);
-      padding: 2rem;
-      text-align: center;
-    }
+  .reviews {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .review-card {
+    background: var(--secondary-color);
+    padding: 20px;
+    border-radius: 12px;
+  }
+  .review-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  .review-card p { font-style: italic; color: var(--muted-color); }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
+  .faq {
+    margin: 50px 0;
+  }
+  .faq-item {
+    margin-bottom: 15px;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px;
+    background: var(--secondary-color);
+    border-radius: 6px;
+  }
+  .faq-item p {
+    margin: 5px 15px;
+    font-style: italic;
+    color: var(--muted-color);
+  }
 
-    nav {
-      margin-top: 1rem;
-    }
+  .contacts {
+    background: var(--secondary-color);
+    padding: 40px 20px;
+    border-radius: 12px;
+    margin: 50px 0;
+  }
+  .contacts form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .contacts input, .contacts textarea, .contacts button {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    font-family: var(--font);
+  }
+  .contacts button {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    cursor: pointer;
+  }
 
-    nav a {
-      margin: 0 1rem;
-      font-weight: bold;
-    }
+  .corporate {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .corporate a { display: block; padding: 10px; background: var(--secondary-color); border-radius: 6px; }
 
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    h3 {
-      margin-top: 2rem;
-      color: var(--accent);
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    .block {
-      background-color: var(--bg-light);
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-    }
-
-    .cta-button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.8rem 2rem;
-      background-color: var(--accent);
-      color: var(--text-dark);
-      font-weight: bold;
-      border-radius: 6px;
-    }
-
-    img {
-      max-width: 100%;
-      border-radius: 6px;
-      margin-top: 1rem;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    footer {
-      background-color: var(--bg-light);
-      text-align: center;
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-
-    /* Простой сеточный блок */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  /* Левый якорь */
+  .side-contact {
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .side-contact a {
+    width: 40px; height: 40px;
+    background: var(--accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+</style>
 </head>
 <body>
 
+<!-- Левый якорь -->
+<div class="side-contact">
+  <a href="#contacts">C</a>
+</div>
+
+<!-- Шапка -->
 <header>
-  <h1>КБ Производственная Студия</h1>
-  <nav>
-    <a href="#home">Главная</a>
-    <a href="#faq">Вопросы</a>
-    <a href="#techdoc">Техдокументация</a>
-    <a href="#contact">Контакты</a>
-  </nav>
+  <img src="https://via.placeholder.com/1200x250" alt="Общий вид мастерской и производственного процесса">
 </header>
 
-<!-- Главная страница -->
-<section id="home">
-  <h2>Как мы решаем вашу задачу</h2>
-  <p>От момента описания задачи до готового изделия, вы видите каждый шаг процесса и участвуете в его согласовании.</p>
+<!-- CTA -->
+<div class="cta-strip">
+  <a href="https://wa.me/"><img src="https://via.placeholder.com/24" alt="WhatsApp">W</a>
+  <a href="https://t.me/"><img src="https://via.placeholder.com/24" alt="Telegram">T</a>
+  <a href="mailto:example@mail.com"><img src="https://via.placeholder.com/24" alt="Email">E</a>
+  <a href="#contacts"><img src="https://via.placeholder.com/24" alt="Контакты на странице">↓</a>
+</div>
 
-  <div class="block">
-    <h3>1. Первый контакт</h3>
-    <p>Вы описываете задачу, ограничения и цели. Можно прислать сообщение, эскиз или фото примера изделия.</p>
-    <img src="placeholder_contact.jpg" alt="Набросок идеи изделия для обсуждения с инженером, пример визуализации задачи для клиента">
-  </div>
+<main>
+  <!-- Шаги для клиента -->
+  <section class="steps">
+    <h2>Ваш путь к решению</h2>
+    <div class="step-card">
+      <img src="https://via.placeholder.com/80" alt="Иконка: первый контакт">
+      <h3>Первый контакт</h3>
+      <p>Вы описываете задачу и ограничения. Мы фиксируем это и делаем первые наброски решения.</p>
+    </div>
+    <div class="step-card">
+      <img src="https://via.placeholder.com/80" alt="Иконка: анализ задачи">
+      <h3>Анализ задачи</h3>
+      <p>Оцениваем шаги, необходимые для реализации. Формируем визуализацию решения для понимания процесса.</p>
+    </div>
+    <div class="step-card">
+      <img src="https://via.placeholder.com/80" alt="Иконка: предложение решения">
+      <h3>Предложение решения</h3>
+      <p>Готовим рабочее предложение с деталями по этапам, материалам и срокам.</p>
+    </div>
+    <div class="step-card">
+      <img src="https://via.placeholder.com/80" alt="Иконка: закрепление решения">
+      <h3>Закрепление решения</h3>
+      <p>Согласуем условия и запускаем работу, уточняем оплату и контрольные точки.</p>
+    </div>
+    <div class="step-card">
+      <img src="https://via.placeholder.com/80" alt="Иконка: работа над проектом">
+      <h3>Работа над проектом</h3>
+      <p>Выполняем проект по шагам с промежуточной проверкой результатов и корректировкой при необходимости.</p>
+    </div>
+    <div class="step-card">
+      <img src="https://via.placeholder.com/80" alt="Иконка: готовое изделие">
+      <h3>Готовое изделие</h3>
+      <p>Передаём продукт с инструкциями и рекомендациями по использованию.</p>
+    </div>
+    <div class="step-card">
+      <img src="https://via.placeholder.com/80" alt="Иконка: поддержка после передачи">
+      <h3>Поддержка после передачи</h3>
+      <p>Вы можете обращаться с уточнениями, повторным изготовлением и новыми запросами.</p>
+    </div>
+  </section>
 
-  <div class="block">
-    <h3>2. Анализ задачи</h3>
-    <p>Мы определяем, какие шаги нужны для реализации и формируем простую визуализацию или схему работы изделия.</p>
-    <img src="placeholder_analysis.jpg" alt="Схема или 3D эскиз изделия, показывающий этапы работы и функционал">
-  </div>
+  <!-- Кейсы -->
+  <section class="cases">
+    <h2>Примеры решений</h2>
+    <div class="case-group">
+      <img src="https://via.placeholder.com/300x200" alt="Прототип изделия, серия 1, изображение 1">
+      <img src="https://via.placeholder.com/300x200" alt="Прототип изделия, серия 1, изображение 2">
+      <img src="https://via.placeholder.com/300x200" alt="Прототип изделия, серия 1, изображение 3">
+    </div>
+    <div class="case-group">
+      <img src="https://via.placeholder.com/300x200" alt="Прототип изделия, серия 2, изображение 1">
+      <img src="https://via.placeholder.com/300x200" alt="Прототип изделия, серия 2, изображение 2">
+      <img src="https://via.placeholder.com/300x200" alt="Прототип изделия, серия 2, изображение 3">
+    </div>
+    <div class="case-group">
+      <img src="https://via.placeholder.com/300x200" alt="Прототип изделия, серия 3, изображение 1">
+      <img src="https://via.placeholder.com/300x200" alt="Прототип изделия, серия 3, изображение 2">
+      <img src="https://via.placeholder.com/300x200" alt="Прототип изделия, серия 3, изображение 3">
+    </div>
+  </section>
 
-  <div class="block">
-    <h3>3. Предложение решения</h3>
-    <p>Вы получаете план: что будет сделано, из чего, сроки и последовательность этапов. Для сложных проектов — прототип → тест → финальный продукт.</p>
-    <img src="placeholder_proposal.jpg" alt="Пример технического предложения с эскизами и этапами изготовления изделия">
-  </div>
+  <!-- Этапы / пайплайн -->
+  <section class="pipeline">
+    <h2>Внутренний процесс</h2>
+    <div class="pipeline-step">
+      <img src="https://via.placeholder.com/60" alt="Иконка: исследование">
+      <p>Исследование и измерения</p>
+    </div>
+    <div class="pipeline-step">
+      <img src="https://via.placeholder.com/60" alt="Иконка: моделирование">
+      <p>Моделирование и прототип</p>
+    </div>
+    <div class="pipeline-step">
+      <img src="https://via.placeholder.com/60" alt="Иконка: производство">
+      <p>Производство и тестирование</p>
+    </div>
+    <div class="pipeline-step">
+      <img src="https://via.placeholder.com/60" alt="Иконка: доставка">
+      <p>Доставка и установка</p>
+    </div>
+  </section>
 
-  <div class="block">
-    <h3>4. Закрепление решения</h3>
-    <p>После согласования деталей мы фиксируем план работы и приступаем к реализации. Оплата по этапам или полностью, в зависимости от проекта.</p>
-    <img src="placeholder_agreement.jpg" alt="Подписание договора и согласование этапов работы над проектом, этапная оплата">
-  </div>
+  <!-- Отзывы -->
+  <section class="reviews">
+    <h2>Примеры применения</h2>
+    <div class="review-card">
+      <img src="https://via.placeholder.com/600x180" alt="Пример использования изделия клиентом 1">
+      <p>«Изделие полностью соответствует требованиям, все этапы были понятны и удобны для контроля»</p>
+    </div>
+    <div class="review-card">
+      <img src="https://via.placeholder.com/600x180" alt="Пример использования изделия клиентом 2">
+      <p>«Процесс согласования и изготовления прошёл гладко, готовый продукт пригодился сразу»</p>
+    </div>
+  </section>
 
-  <div class="block">
-    <h3>5. Работа над проектом</h3>
-    <p>Вы видите промежуточные результаты: фото, 3D-модель, тестовый прототип. Корректировки возможны по ходу работы.</p>
-    <img src="placeholder_work.jpg" alt="Фотографии прототипа изделия и процесса изготовления, этапы тестирования">
-  </div>
+  <!-- Вопросы -->
+  <section class="faq">
+    <h2>Вопросы и ответы</h2>
+    <details class="faq-item">
+      <summary>Сроки выполнения проекта</summary>
+      <p>Ориентировочно от 1 до 4 недель в зависимости от сложности.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Материалы и их выбор</summary>
+      <p>Используем подходящие материалы, согласуем с клиентом по прочности и весу.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Контроль на промежуточных этапах</summary>
+      <p>Все этапы сопровождаются фото и визуализацией для согласования деталей.</p>
+    </details>
+  </section>
 
-  <div class="block">
-    <h3>6. Готовое изделие</h3>
-    <p>Передача изделия, инструкции по эксплуатации и рекомендации по использованию. Возможна доставка или самовывоз.</p>
-    <img src="placeholder_final.jpg" alt="Готовое изделие на рабочем месте клиента, пример использования изделия">
-  </div>
+  <!-- Контакты -->
+  <section class="contacts" id="contacts">
+    <h2>Контакты</h2>
+    <p>Телефон: +7 900 000-00-00</p>
+    <p>WhatsApp: <a href="https://wa.me/">Ссылка</a></p>
+    <p>Telegram: <a href="https://t.me/">Ссылка</a></p>
+    <p>Email: <a href="mailto:example@mail.com">example@mail.com</a></p>
 
-  <div class="block">
-    <h3>7. Поддержка после передачи</h3>
-    <p>Дополнения, изменения или новые версии изделия выполняются по согласованному плану. Вы можете обратиться с новой задачей в любое время.</p>
-    <img src="placeholder_support.jpg" alt="Обратная связь с клиентом после передачи изделия, пример поддержки и доработок">
-  </div>
+    <form>
+      <input type="text" placeholder="Ваше имя">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Описание задачи"></textarea>
+      <button type="submit">Отправить</button>
+    </form>
+  </section>
 
-  <a href="#contact" class="cta-button">Описать задачу</a>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <h2>Часто задаваемые вопросы</h2>
-
-  <div class="block">
-    <h3>Какие сроки выполнения проекта?</h3>
-    <p>Срок зависит от сложности изделия. Простое изделие — от нескольких дней, сложный прототип — от пары недель. Точные сроки согласовываются индивидуально.</p>
-
-    <h3>Какие материалы используются?</h3>
-    <p>Выбор материала зависит от функционала и условий эксплуатации. Мы работаем с пластиками, металлами и композитами. Конкретный вариант согласуется на этапе анализа задачи.</p>
-
-    <h3>Можно ли внести изменения после начала работы?</h3>
-    <p>Да, корректировки возможны на всех этапах, особенно при работе с прототипом или тестовой версией изделия.</p>
-
-    <h3>Как оформить заказ?</h3>
-    <p>Через форму на сайте или сообщение в мессенджер. После уточнения деталей мы формируем предложение и согласовываем этапы работы.</p>
-
-    <h3>Что если изделие нужно срочно?</h3>
-    <p>Есть ускоренные варианты, если позволяют материалы и оборудование. Сроки и стоимость уточняются индивидуально.</p>
-  </div>
-</section>
-
-<!-- Пример техдокументации -->
-<section id="techdoc">
-  <h2>Пример технической документации</h2>
-  <p>Для ознакомления мы показываем структурированный пример документации на изделие.</p>
-
-  <div class="block">
-    <h3>1. Название изделия</h3>
-    <p>Ортез голеностопа, индивидуальный размер.</p>
-
-    <h3>2. Описание и назначение</h3>
-    <p>Функция: стабилизация сустава, ограничение осевого кручения, снятие нагрузки. Применение: повседневное и реабилитационное.</p>
-
-    <h3>3. Основные размеры и материалы</h3>
-    <ul>
-      <li>Обхват голени: 35–45 см</li>
-      <li>Обхват стопы: 22–30 см</li>
-      <li>Материал: фотополимер, TPU для гибких элементов</li>
-    </ul>
-
-    <h3>4. Этапы изготовления</h3>
-    <ul>
-      <li>Сканирование и снятие мерок</li>
-      <li>Параметрическая 3D-модель</li>
-      <li>Печать прототипа</li>
-      <li>Проверка посадки и корректировка</li>
-      <li>Печать финальной версии</li>
-      <li>Финишная обработка и сборка</li>
-    </ul>
-
-    <h3>5. Визуализация</h3>
-    <img src="placeholder_techdoc.jpg" alt="3D-модель ортеза с пометками размеров, материалов и сборки">
-  </div>
-</section>
-
-<!-- Контакты -->
-<section id="contact">
-  <h2>Контакты</h2>
-  <p>Вы можете написать нам сообщение или прислать краткое описание задачи.</p>
-
-  <form>
-    <label>Имя:<br>
-      <input type="text" name="name" required>
-    </label><br><br>
-    <label>Email или мессенджер:<br>
-      <input type="text" name="contact" required>
-    </label><br><br>
-    <label>Описание задачи:<br>
-      <textarea name="task" rows="4" required></textarea>
-    </label><br><br>
-    <button type="submit" class="cta-button">Отправить</button>
-  </form>
-</section>
-
-<footer>
-  <p>&copy; 2025 КБ Производственная Студия</p>
-</footer>
+  <!-- Корпоратив -->
+  <section class="corporate">
+    <h2>Документация для корпоративных клиентов</h2>
+    <a href="#">Пример договора</a>
+    <a href="#">Пример технического задания</a>
+    <a href="#">Пример документации по проекту</a>
+  </section>
+</main>
 
 </body>
 </html>
