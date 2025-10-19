@@ -46,7 +46,7 @@
     display: flex;
     justify-content: center;
     gap: 40px;
-    padding: 40px 20px;
+    padding: 30px 20px;
     background-color: rgba(0,0,0,0.3);
   }
 
@@ -57,7 +57,38 @@
     color: var(--accent-color);
   }
 
-  .contacts a svg { width: 30px; height: 30px; margin-bottom: 8px; }
+  .contacts a svg { width: 20px; height: 20px; margin-bottom: 8px; }
+  .contacts a img { width: 40px; height: 40px; margin-bottom: 8px; }
+
+  /* Текстовый блок */
+  .text-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: start;
+  }
+
+  .text-section h3 {
+    color: var(--accent);
+    font-size: 1.6em;
+    margin-bottom: 12px;
+  }
+
+  .text-section p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #e0e0e0;
+  }
+
+  @media (max-width: 700px) {
+    .text-section {
+      grid-template-columns: 1fr;
+    }
+  }
+
 
   /* Инфографика */
   .steps {
@@ -196,42 +227,61 @@
 </header>
 
 <section class="contacts">
-  <a href="https://t.me/ki_privet"><img src="icon-tg.png"></a>
-  <a href="https://api.whatsapp.com/send/?phone=79257711073&type=phone_number"><img src="icon-whatsapp.png"></a>
-  <a href="mailto:proto-design@kiproto.ru"><img src="icon-mail.png"></a>
-  <a href="tel:+79257711073"><img src="icon-phone.png"></a>
+  <a href="https://t.me/ki_privet" target=#><img src="icon-tg.png"></a>
+  <a href="https://api.whatsapp.com/send/?phone=79257711073&type=phone_number" target=#><img src="icon-whatsapp.png"></a>
+  <a href="mailto:proto-design@kiproto.ru" target=#><img src="icon-mail.png"></a>
+  <a href="tel:+79257711073" target=#><img src="icon-phone.png"></a>
 </section>
+
+
+  <!-- Текстовый блок описания -->
+  <section class="text-section">
+    <div class="text-column">
+      <h3>От</h3>
+      <p>
+Точечные задачи — обработка 3D-моделей, реверс-инжиниринг, подготовка прототипа или визуализация. Вы получаете готовую деталь, модель или рендер.
+      </p>
+    </div>
+
+    <div class="text-column">
+      <h3>До</h3>
+      <p>
+Полный цикл разработки — от концепции и технического задания до выпуска партии изделий, включая контроль производства, оптимизацию геометрии и адаптацию под требования. Вы получаете законченный продукт, готовый к использованию или серийному производству.
+      </p>
+    </div>
+  </section>
+
 
   <!-- Фото-галерея -->
   <section class="gallery">
     <h2></h2>
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="/photo1.jpg" alt="Фото 1" onclick="openLightbox(this)">
+        <img src="photo1.jpg" alt="Фото 1" onclick="openLightbox(this)">
       </div>
       <div class="gallery-item">
-        <img src="/photo2.jpg" alt="Фото 2" onclick="openLightbox(this)">
+        <img src="photo2.jpg" alt="Фото 2" onclick="openLightbox(this)">
       </div>
       <div class="gallery-item">
-        <img src="/photo3.jpg" alt="Фото 3" onclick="openLightbox(this)">
+        <img src="photo3.jpg" alt="Фото 3" onclick="openLightbox(this)">
       </div>
       <div class="gallery-item">
-        <img src="/photo4.jpg" alt="Фото 4" onclick="openLightbox(this)">
+        <img src="photo4.jpg" alt="Фото 4" onclick="openLightbox(this)">
       </div>
       <div class="gallery-item">
-        <img src="/photo5.jpg" alt="Фото 4" onclick="openLightbox(this)">
+        <img src="photo5.jpg" alt="Фото 4" onclick="openLightbox(this)">
       </div>
       <div class="gallery-item">
-        <img src="/photo6.jpg" alt="Фото 4" onclick="openLightbox(this)">
+        <img src="photo6.jpg" alt="Фото 4" onclick="openLightbox(this)">
       </div>
       <div class="gallery-item">
-        <img src="/photo7.jpg" alt="Фото 4" onclick="openLightbox(this)">
+        <img src="photo7.jpg" alt="Фото 4" onclick="openLightbox(this)">
       </div>
       <div class="gallery-item">
-        <img src="/photo8.jpg" alt="Фото 4" onclick="openLightbox(this)">
+        <img src="photo8.jpg" alt="Фото 4" onclick="openLightbox(this)">
       </div>
       <div class="gallery-item">
-        <img src="/photo9.jpg" alt="Фото 4" onclick="openLightbox(this)">
+        <img src="photo9.jpg" alt="Фото 4" onclick="openLightbox(this)">
       </div>
 
     </div>
